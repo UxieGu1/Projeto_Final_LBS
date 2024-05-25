@@ -1,0 +1,26 @@
+@media screen and (max-width: 1160px) {
+    .nav{
+        padding: 15px 100px;
+    }
+    .nav .search-box{
+        right: 150px;
+    }
+}
+@media screen and (max-width: 950px){
+    .nav{
+        padding: 15px 50px;
+    }
+    .nav .search-box{
+        right: 100px;
+        max-width: 400px;
+    }
+}
+@media screen and (max-width: 768px){
+    .nav .navOpenBtn,
+    .nav .navCloseBtn{
+        display: block;
+    }
+    .nav{
+        padding: 15px 20px;
+    }
+}
