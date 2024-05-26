@@ -16,19 +16,24 @@
     $login = $_POST['login'];
     $senha = $_POST['senha'];
 
-    // Consulta SQL para validar o login do administrador
-    $sql = "SELECT * FROM administrador WHERE Login='$login' AND Senha='$senha'";
-
-    // Executar a consulta SQL
-    $result = $conn->query($sql);
-
-    // Verificar se a consulta retornou algum resultado
-    if ($result->num_rows > 0) {
-        // Login bem-sucedido
-        echo "Login de administrador bem-sucedido.";
+    // Verificar se os campos estão preenchidos
+    if (empty($login) || empty($senha)) {
+        echo "Por favor, preencha todos os campos.";
     } else {
-        // Login inválido
-        echo "Login de administrador inválido.";
+        // Consulta SQL para validar o login do administrador
+        $sql = "SELECT * FROM administrador WHERE Login='$login' AND Senha='$senha'";
+
+        // Executar a consulta SQL
+        $result = $conn->query($sql);
+
+        // Verificar se a consulta retornou algum resultado
+        if ($result->num_rows > 0) {
+            // Login bem-sucedido
+            echo "Login de administrador bem-sucedido.";
+        } else {
+            // Login inválido
+            echo "Login de administrador inválido.";
+        }
     }
 
     // Fechar conexão com o banco de dados
