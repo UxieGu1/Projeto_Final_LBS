@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar admin</title>
+    <title>Adicionar user</title>
     <style>
         body {
             display: flex;
@@ -12,25 +12,24 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            background-color: gray;
         }
         .form {
             background-color: #fff;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 550px;
         }
-        .form input[type="text"],
-        .form input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            box-sizing: border-box;
+        .form label,
+        .form input {
+            display: block;
+            width: calc(100% - 20px);
+            margin: 10px auto;
         }
         .form input[type="submit"] {
-            width: 100%;
+            width: calc(100% - 20px);
+            margin: 10px auto;
             padding: 10px;
             background-color: #007bff;
             color: #fff;
@@ -46,28 +45,35 @@
 <body>
     <div class="form">
         <h1>Adicionar user</h1>
-        <form action="registrarUser.php" method="post">
+        <form id="userForm" action="registrarUser.php" method="post" onsubmit="return validarForm()">
             <label for="nome">Nome Completo:</label>
-            <input type="text" id="nome" name="nome" onkeydown="if(event.keyCode==13) document.getElementById('data').focus()">
+            <input type="text" id="nome" name="nome" required>
             <label for="data">Data de Nascimento:</label>
-            <input type="text" id="data" name="data" onkeydown="if(event.keyCode==13) document.getElementById('email').focus()">
+            <input type="text" id="data" name="data" required>
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email" onkeydown="if(event.keyCode==13) document.getElementById('login').focus()">
+            <input type="email" id="email" name="email" required>
             <label for="login">Login:</label>
-            <input type="text" id="login" name="login" onkeydown="if(event.keyCode==13) document.getElementById('senha').focus()">
+            <input type="text" id="login" name="login" required>
             <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" onkeydown="if(event.keyCode==13) event.preventDefault();">
+            <input type="password" id="senha" name="senha" required>
             <input type="submit" value="Enviar">
         </form>
     </div>
 
     <script>
-        document.getElementById("senha").addEventListener("keydown", function(event) {
-            if (event.key === "Enter") {
-                event.preventDefault();
-                document.querySelector("form").submit();
+        function validarForm() {
+            var nome = document.getElementById("nome").value;
+            var data = document.getElementById("data").value;
+            var email = document.getElementById("email").value;
+            var login = document.getElementById("login").value;
+            var senha = document.getElementById("senha").value;
+            
+            if (nome === "" || data === "" || email === "" || login === "" || senha === "") {
+                alert("Por favor, preencha todos os campos.");
+                return false; 
             }
-        });
+            return true; 
+        }
     </script>
 </body>
 </html>
