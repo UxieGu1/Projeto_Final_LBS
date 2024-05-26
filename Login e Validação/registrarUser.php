@@ -19,14 +19,19 @@
     $data_nascimento = $_POST['data'];
     $email = $_POST['email'];
 
-    // Consulta SQL para inserir os dados do novo usuário no banco de dados
-    $insert_sql = "INSERT INTO usuario (Login, Senha, NomeCompleto, DataNascimento, Email) VALUES ('$login', '$senha', '$nome_completo', '$data_nascimento', '$email')";
-
-    // Executar a consulta SQL
-    if ($conn->query($insert_sql) === TRUE) {
-        echo "Novo usuário adicionado com sucesso.";
+    // Verificar se todos os campos foram preenchidos
+    if (empty($login) || empty($senha) || empty($nome_completo) || empty($data_nascimento) || empty($email)) {
+        echo "Por favor, preencha todos os campos.";
     } else {
-        echo "Erro ao adicionar novo usuário: " . $conn->error;
+        // Consulta SQL para inserir os dados do novo usuário no banco de dados
+        $insert_sql = "INSERT INTO usuario (Login, Senha, NomeCompleto, DataNascimento, Email) VALUES ('$login', '$senha', '$nome_completo', '$data_nascimento', '$email')";
+
+        // Executar a consulta SQL
+        if ($conn->query($insert_sql) === TRUE) {
+            echo "Novo usuário adicionado com sucesso.";
+        } else {
+            echo "Erro ao adicionar novo usuário: " . $conn->error;
+        }
     }
 
     // Fechar conexão com o banco de dados
