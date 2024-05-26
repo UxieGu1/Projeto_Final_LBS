@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Conexão Bem-Estar</title>
+    <link rel="website icon" type="png" href="log.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+    <style type="text/css">
+        .card {
+            transition: all 0.4s ease-in-out;
+            height: 220px;
+
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-item {
+            position: relative;
+            left: 750px;
+
+        }
+        
+        #entrar:hover {
+            background-color: #ffffff;
+            color: #000000;
+
+
+        }
+
+        @media (max-width: 767.98px) {
+            .navbar-nav {
+                position: relative;
+                left: 0;
+                text-align: center;
+            }
+
+            #txt1{
+                text-align: center;
+                font-size: 30px;
+            }
+            #txt2{
+                text-align: center;
+                font-size: 12px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <!-- inicio barra navegação-->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <img src="logo.png" style="width: 25px; height: 25px;">
+                <a class="navbar-brand" href="#">Conexão Bem-Estar</a>
+
+
+
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="historia.html" style="color: black;">Quem somos?</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="servicos.html" style="color: black;">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="planos.html" style="color: black;">Planos</a>
+                        </li>
+                        <li class="nav-item">
+                            <span class="border border-white"><a href="loginUsuario.html" id="entrar"
+                                    class="btn btn-outline-primary bg-black text-white">Entrar</a></span>
+                        </li>
+                      </ul>
+
+
+
+
+                </div>
+            </div>
+        </nav>
+
+        <!-- FIM BARRA NAVEÇÃO-->
+
+        <!-- INICIO CARROSEL-->
+        <section style="display: block;">
+            <div class="col-12" style="width: 100%; height: 25px; background-color: #2482F8;"></div>
+            <div class="col-12" style="width: 100%; height: 400px; background-color: #ffffff;">
+                <div class="col-12 mt-5" style="font-size: 50px; text-align: center; font-family: sans-serif;">
+                    <p id="txt1"><b>Venha você também fazer parte desse mundo "xô sedentarismo!"</b></p>
+                    <p id="txt2" style="text-align: center; font-size: 25px; font-family: Arial, Helvetica, sans-serif; color: #a49898;">
+                        Inicie hoje uma vida mais saudável e com novos hábitos!</p>
+                    <span class="border border-white"><a href="cadastroUsuario.html" id="entrar"
+                            class="btn btn-outline-primary bg-black text-white">Comece Agora!</a></span>
+                </div>
+
+
+
+
+
+            </div>
+        </section>
+
+        <!-- FIM CARROSEL-->
+    </header>
+
+    <main>
+
+        <!-- INICIO CARDs-->
+        <section>
+            <div class="container">
+                <div class="row mt-5">
+
+                    <div class="col-12 col-md-4 mt-1 mb-2">
+                        <div class="card" style=" align-items: center; background-color: #f9f9f9;">
+                            <div class="card-body" style="text-align: center;">
+                                <h3 style="color: #2482F8;">Dieta e alimentação</h3>
+                                <p class="card-text">Nossa plataforma oferece um arsenal de recursos, desde planos de
+                                    refeições até receitas deliciosas e conselhos de especialistas.
+                                    Prepare-se para transformar sua relação com a comida e alcançar o seu melhor eu
+                                    através de escolhas conscientes e sustentáveis.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4 mt-1 mb-2">
+                        <div class="card" style=" align-items: center; background-color: #f9f9f9;">
+                            <div class="card-body" style="text-align: center;">
+                                <h3 style="color: #2482F8;">Profissionais qualificados</h3>
+                                <p class="card-text">Aqui, reunimos uma equipe de educadores físicos e nutricionistas
+                                    apaixonados e qualificados,
+                                    prontos para guiar e inspirar nossos clientes em sua jornada de transformação.
+                                    Nossa equipe está sempre à disposição para te ajudar.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4 mt-1 mb-1">
+                        <div class="card" style=" align-items: center; background-color: #f9f9f9;">
+                            <div class="card-body" style="text-align: center; size: 50px;">
+                                <h3 style="color: #2482F8;">Exercícios de apoio</h3>
+                                <p class="card-text">Seja qual for o seu nivel de condicionamento fisico ou seus
+                                    objetivos de treinamento,
+                                    aqui você encontrará exercícios acessíveis e eficazes para fortalecer seu corpo,
+                                    aumentar sua flexibilidade e melhorar sua saúde geral.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-12 col-md-4 mt-1 mb-2">
+                        <div class="card" style=" align-items: center; background-color: #f9f9f9;">
+                            <div class="card-body" style="text-align: center;">
+                                <h3 style="color: #2482F8;">Incentivo a desafios</h3>
+                                <p class="card-text">Nossa plataforma oferece um arsenal de recursos, desde planos de
+                                    refeições até receitas deliciosas e conselhos de especialistas.
+                                    Prepare-se para transformar sua relação com a comida e alcançar o seu melhor eu
+                                    através de escolhas conscientes e sustentáveis.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4 mt-1 mb-2">
+                        <div class="card" style=" align-items: center; background-color: #f9f9f9;">
+                            <div class="card-body" style="text-align: center;">
+                                <h3 style="color: #2482F8;">Dieta e alimentação</h3>
+                                <p class="card-text">Nossa plataforma oferece um arsenal de recursos, desde planos de
+                                    refeições até receitas deliciosas e conselhos de especialistas.
+                                    Prepare-se para transformar sua relação com a comida e alcançar o seu melhor eu
+                                    através de escolhas conscientes e sustentáveis.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4 mt-1 mp-2">
+                        <div class="card" style=" align-items: center; background-color: #f9f9f9;">
+                            <div class="card-body" style="text-align: center;">
+                                <h3 style="color: #2482F8;">Dieta e alimentação</h3>
+                                <p class="card-text">Nossa plataforma oferece um arsenal de recursos, desde planos de
+                                    refeições até receitas deliciosas e conselhos de especialistas.
+                                    Prepare-se para transformar sua relação com a comida e alcançar o seu melhor eu
+                                    através de escolhas conscientes e sustentáveis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--FIM CARDS-->
+
+
+        <section style="background-color: #DEDFDF ; margin: 2rem 0rem;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <img src="bnn.png" class="img-fluid d-block mx-auto" alt="...">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container-fluid bg-dark text-white text-center py-2">
+            <div class="row">
+                <div class="col-12">
+                    Conexão Bem-Estar
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
