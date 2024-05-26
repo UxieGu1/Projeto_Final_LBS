@@ -48,9 +48,9 @@
         <h1>User</h1>
         <form action="ValidarLoginUser.php" method="post" onsubmit="return validarForm()">
             <label for="login">Login:</label>
-            <input type="text" id="login" name="login" onkeydown="if(event.keyCode==13) document.getElementById('senha').focus()">
+            <input type="text" id="login" name="login" required>
             <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha">
+            <input type="password" id="senha" name="senha" required>
             <input type="submit" value="Enviar">
         </form>
     </div>
