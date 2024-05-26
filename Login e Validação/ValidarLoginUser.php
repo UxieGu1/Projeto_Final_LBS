@@ -16,6 +16,12 @@
     $login = $_POST['login'];
     $senha = $_POST['senha'];
 
+    // Verificar se os campos de login e senha estão preenchidos
+    if (empty($login) || empty($senha)) {
+        echo "Por favor, preencha todos os campos.";
+        exit(); // Encerrar o script se os campos estiverem vazios
+    }
+
     // Consulta SQL para verificar se o login já existe
     $check_sql = "SELECT * FROM usuario WHERE Login='$login'";
     $check_result = $conn->query($check_sql);
