@@ -12,12 +12,12 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            background-color: gray;
         }
         .form {
             background-color: #fff;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .form input[type="text"],
@@ -46,7 +46,7 @@
 <body>
     <div class="form">
         <h1>Admin</h1>
-        <form action="ValidarLoginAdm.php" method="post">
+        <form action="ValidarLoginAdm.php" method="post" onsubmit="return validarForm()">
             <label for="login">Login:</label>
             <input type="text" id="login" name="login" onkeydown="if(event.keyCode==13) document.getElementById('senha').focus()">
             <label for="senha">Senha:</label>
@@ -56,12 +56,16 @@
     </div>
 
     <script>
-        document.getElementById("login").addEventListener("keydown", function(event) {
-            if (event.key === "Enter") {
-                event.preventDefault();
-                document.getElementById("senha").focus();
+        function validarForm() {
+            var login = document.getElementById("login").value;
+            var senha = document.getElementById("senha").value;
+            
+            if (login === "" || senha === "") {
+                alert("Por favor, preencha todos os campos.");
+                return false; 
             }
-        });
+            return true; 
+        }
     </script>
 </body>
 </html>
