@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Produtos</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* mudança de cor de fundo */
+        }
+        
+        .form {
+            background-color: #fff;
+            padding: 30px; /* aumento do padding */
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px; /* adição de largura */
+        }
+        
+        .form h1 {
+            text-align: center; /* centralizar título */
+            margin-bottom: 20px; /* adição de espaço entre título e formulário */
+        }
+        
+        .form label {
+            display: block; /* quebrar linha após cada label */
+            margin-bottom: 10px; /* adição de espaço entre labels */
+        }
+        
+        .form input[type="text"], .form input[type="password"] {
+            width: 100%;
+            padding: 15px; /* aumento do padding */
+            margin-bottom: 20px; /* aumento do espaço entre inputs */
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        
+        .form input[type="submit"] {
+            width: 100%;
+            padding: 15px; /* aumento do padding */
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <h1>Cadastrar produtos</h1>
+        <form action="adicionarProduto.php" method="post" onsubmit="return validarForm()">
+            <label for="produto">Nome do produto:</label>
+            <input type="text" id="produto" name="produto" required>
+            <label for="descricao">Descrição</label>
+            <input type="text" id="descricao" name="descricao" required>
+            <label for="preco">Preço:</label>
+            <input type="text" id="preco" name="preco" required>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+    <script>
+        function validarForm() {
+            var produto = document.getElementById("produto").value;
+            var descricao = document.getElementById("descricao").value;
+            var preco = document.getElementById("preco").value;
+            
+            if (produto === "" || descricao === "" || preco === "") {
+                alert("Por favor, preencha todos os campos.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

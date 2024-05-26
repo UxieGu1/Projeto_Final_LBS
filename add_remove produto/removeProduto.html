@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remover produto</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        .form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        
+        .form h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .form input[type="text"], .form input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        
+        .form input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <h1>Remover produtos</h1>
+        <form action="removeProduto.php" method="post" onsubmit="return validarForm()">
+            <label for="id_produto">ID do Produto:</label>
+            <input type="text" id="id_produto" name="id_produto" required><br>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+    <script>
+        function validarForm() {
+            var id_produto = document.getElementById("id_produto").value;
+
+            if (id_produto === "") {
+                alert("Por favor, preencha todos os campos.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
