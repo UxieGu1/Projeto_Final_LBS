@@ -1,12 +1,12 @@
 <?php
-    $servername = "localhost";
-    $username = "root"; 
-    $password = ""; 
-    $database = "projeto_lbs"; 
-    $conn = new mysqli($servername, $username, $password, $database);
+    $servidor = "localhost";
+    $usuario = "root"; 
+    $senhaBDD = ""; 
+    $bancoDD = "projeto_lbs"; 
+    $conexao = new mysqli($servidor, $usuario, $senhaBDD, $bancoBDD);
 
-    if ($conn->connect_error) {
-        die("Ocorreu um erro: " . $conn->connect_error);
+    if ($conexao->connect_error) {
+        die("Ocorreu um erro: " . $conexao->connect_error);
     }
 
     $login = $_POST['login'];
@@ -17,7 +17,7 @@
     } else {
         $sql = "SELECT * FROM administrador WHERE Login='$login' AND Senha='$senha'";
 
-        $result = $conn->query($sql);
+        $result = $conexao->query($sql);
 
         if ($result->num_rows > 0) {
             echo "Login de administrador bem-sucedido.";
