@@ -1,26 +1,26 @@
 <?php
 if(isset($_POST['id_produto'])) {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "projeto_lbs";
-    $conn = new mysqli($servername, $username, $password, $database);
+    $servidor = "localhost";
+    $usuario = "root"; 
+    $senhaBDD = ""; 
+    $bancoDD = "projeto_lbs";
+    $conexao = new mysqli($servidor, $usuario, $senhaBDD, $bancoDD);
 
-    if ($conn->connect_error) {
-        die("Ocorreu um erro ao conectar ao banco de dados: " . $conn->connect_error);
+    if ($conexao->connect_error) {
+        die("Ocorreu um erro ao conectar ao banco de dados: " . $conexao->connect_error);
     }
 
-    $id_produto = $conn->real_escape_string($_POST['id_produto']);
+    $id_produto = $conexao->real_escape_string($_POST['id_produto']);
 
     $sql = "DELETE FROM produto WHERE id = $id_produto";
 
-    if ($conn->query($sql) === TRUE) {
+    if ($conexao->query($sql) === TRUE) {
         echo "Produto removido com sucesso.";
     } else {
-        echo "Erro ao remover produto: " . $conn->error;
+        echo "Erro ao remover produto: " . $conexao->error;
     }
 
-    $conn->close();
+    $conexao->close();
 } else {
     echo "ID do produto não foi fornecido.";
 }
