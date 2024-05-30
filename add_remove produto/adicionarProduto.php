@@ -1,12 +1,12 @@
 <?php
-    $servername = "localhost";
-    $username = "root"; 
-    $password = ""; 
-    $database = "projeto_lbs"; 
-    $conn = new mysqli($servername, $username, $password, $database);
+    $servidor = "localhost";
+    $usuario = "root"; 
+    $senhaBDD = ""; 
+    $bancoDD = "projeto_lbs";
+    $conexao = new mysqli($servidor, $usuario, $senhaBDD, $bancoDD);
 
-    if ($conn->connect_error) {
-        die("Ocorreu um erro: " . $conn->connect_error);
+    if ($conexo->connect_error) {
+        die("Ocorreu um erro: " . $conexao->connect_error);
     }
 
     $produto = $_POST['produto'];
@@ -16,14 +16,14 @@
     if (empty($produto) || empty($descricao) || empty($preco) ) {
         echo "Por favor, preencha todos os campos.";
     } else {
-        $insert_sql = "INSERT INTO produto (Nome, Descrição, Preço) VALUES ('$produto', '$descricao', '$preco')";
+        $inserir_sql = "INSERT INTO produto (Nome, Descrição, Preço) VALUES ('$produto', '$descricao', '$preco')";
 
-        if ($conn->query($insert_sql) === TRUE) {
+        if ($conexao->query($inserir_sql) === TRUE) {
             echo "Novo produto adicionado com sucesso.";
         } else {
-            echo "Erro ao adicionar novo produto: " . $conn->error;
+            echo "Erro ao adicionar novo produto: " . $conexao->error;
         }
     }
 
-    $conn->close();
+    $conexao->close();
 ?>
