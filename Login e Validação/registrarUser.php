@@ -1,12 +1,12 @@
 <?php
-    $servername = "localhost";
-    $username = "root"; 
-    $password = ""; 
-    $database = "projeto_lbs"; 
-    $conn = new mysqli($servername, $username, $password, $database);
+    $servidor = "localhost";
+    $usuario = "root"; 
+    $senhaBDD = ""; 
+    $bancoDD = "projeto_lbs"; 
+    $conexao = new mysqli($servidor, $usuario, $senhaBDD, $bancoDD);
 
-    if ($conn->connect_error) {
-        die("Ocorreu um erro: " . $conn->connect_error);
+    if ($conexao->connect_error) {
+        die("Ocorreu um erro: " . $conexao->connect_error);
     }
 
     $login = $_POST['login'];
@@ -18,14 +18,14 @@
     if (empty($login) || empty($senha) || empty($nome_completo) || empty($data_nascimento) || empty($email)) {
         echo "Por favor, preencha todos os campos.";
     } else {
-        $insert_sql = "INSERT INTO usuario (Login, Senha, NomeCompleto, DataNascimento, Email) VALUES ('$login', '$senha', '$nome_completo', '$data_nascimento', '$email')";
+        $inserir_sql = "INSERT INTO usuario (Login, Senha, NomeCompleto, DataNascimento, Email) VALUES ('$login', '$senha', '$nome_completo', '$data_nascimento', '$email')";
 
-        if ($conn->query($insert_sql) === TRUE) {
+        if ($conexao->query($inserir_sql) === TRUE) {
             echo "Novo usuário adicionado com sucesso.";
         } else {
-            echo "Erro ao adicionar novo usuário: " . $conn->error;
+            echo "Erro ao adicionar novo usuário: " . $conexao->error;
         }
     }
 
-    $conn->close();
+    $conexao->close();
 ?>
