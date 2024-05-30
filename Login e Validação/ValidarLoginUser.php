@@ -1,12 +1,12 @@
 <?php
-    $servername = "localhost";
-    $username = "root"; 
-    $password = ""; 
-    $database = "projeto_lbs"; 
-    $conn = new mysqli($servername, $username, $password, $database);
+    $servidor = "localhost";
+    $usuario = "root"; 
+    $senhaBDD = ""; 
+    $bancoDD = "projeto_lbs"; 
+    $conexao = new mysqli($servidor, $usuario, $senhaBDD, $BandoDD);
 
-    if ($conn->connect_error) {
-        die("Ocorreu um erro: " . $conn->connect_error);
+    if ($conexao->connect_error) {
+        die("Ocorreu um erro: " . $conexao->connect_error);
     }
 
     $login = $_POST['login'];
@@ -17,12 +17,12 @@
         exit(); 
     }
 
-    $check_sql = "SELECT * FROM usuario WHERE Login='$login'";
-    $check_result = $conn->query($check_sql);
+    $ver_sql = "SELECT * FROM usuario WHERE Login='$login'";
+    $ver_resultado = $conexao->query($ver_sql);
 
-    if ($check_result->num_rows > 0) {
+    if ($ver_resultado->num_rows > 0) {
         $sql = "SELECT * FROM usuario WHERE Login='$login' AND Senha='$senha'";
-        $result = $conn->query($sql);
+        $resultado = $conexao->query($sql);
 
         if ($result->num_rows > 0) {
             echo "Login de usuário bem-sucedido.";
@@ -34,5 +34,5 @@
         exit();
     }
 
-    $conn->close();
+    $conexao->close();
 ?>
