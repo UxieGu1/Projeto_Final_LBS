@@ -24,7 +24,7 @@
         $sql = "SELECT * FROM usuario WHERE Login='$login' AND Senha='$senha'";
         $resultado = $conexao->query($sql);
 
-        if ($result->num_rows > 0) {
+        if ($resultado->num_rows > 0) {
             echo "Login de usuário bem-sucedido.";
         } else {
             echo "Senha incorreta.";
