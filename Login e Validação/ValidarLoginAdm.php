@@ -26,5 +26,5 @@
         }
     }
 
-    $conn->close();
+    $conexao->close();
 ?>
