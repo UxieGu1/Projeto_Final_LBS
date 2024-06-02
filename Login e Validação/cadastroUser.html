@@ -1,95 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <title>Cadastro de Usuário</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #295D8D;
     }
 
-    .formulario {
+    .container {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
 
-    .conteudo {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
+    .left-side {
+      padding: 30px;
+      background: #fff;
+      border-radius: 15px;
       box-shadow: 0 0 10px black;
-      width: 300px;
+      margin-right: 20px;
+      max-width: 400px;
     }
 
-    h1 {
-      font-size: 24px;
+    .right-side img {
+      max-width: 100%;
+      border-radius: 15px;
+    }
+
+    .btn-group {
       margin-bottom: 20px;
     }
 
-    input[type="text"],
-    input[type="password"],
-    input[type="email"],
-    input[type="submit"] {
+    .btn-primary {
+      border-radius: 20px;
       width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
     }
 
-    input[type="submit"] {
-      background-color: blue;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    input[type="submit"]:hover {
-      background-color: #0056b3;
-    }
-
-    .link a {
-      color: blue;
-      text-decoration: none;
-    }
-
-    .link a:hover {
-      text-decoration: underline;
+    .sign-in-link {
+      text-align: center;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <div class="formulario">
-    <div class="conteudo">      
-      <div id="cadastro">
-        <form method="post" action="cadastrarUser.php"> <!-- Substitua "processaCadastro.php" pelo nome do script que processará o formulário -->
-          <h1>Cadastro</h1> 
-            <p for="nome">Nome completo:</label></p>
-            <input id="nome" name="nome" required="required" type="text" placeholder="Nome completo" />
-            <p for="senha">Data de nascimento</p>
-            <input id="data" name="data" required="required" type="date" placeholder="ex: 11/09/2004" />
-            <p for="email">Email:</p>
-            <input id="email" name="email" required="required" type="email" placeholder="aluno@gmail.com"/> 
-            <p for="login">Login</p>
-            <input id="login" name="login" required="required" type="text" placeholder="gui123"/> 
-            <p for="senha">Sua senha</p>
-            <input id="senha" name="senha" required="required" type="password" placeholder="ex. 1234"/>
-            
-            <input type="submit" value="Cadastrar"/>
-
-          <p class="link">  
-            Já tem conta?
-            <a href="loginUser.html"> Ir para Login </a>
-          </p>
-        </form>
+  <div class="container">
+    <div class="left-side">      
+      <form action="cadastrarUser.php" method="post" onsubmit="return validarForm()">
+        <div class="mb-3">
+          <h1 >Cadastra-se</h1>
+          <label for="nome" class="form-label">Nome completo:</label>
+          <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+        </div>
+        <div class="mb-3">
+          <label for="data" class="form-label">Data de nascimento:</label>
+          <input type="text" class="form-control" id="data" placeholder="Digite sua data de nasc.">
+        </div>
+        <div class="mb-3">
+          <label for="login" class="form-label">Login</label>
+          <input type="text" class="form-control" id="login" placeholder="Digite seu login">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+        </div>
+        <div class="mb-3">
+          <label for="senha" class="form-label">Senha:</label>
+          <input type="password" class="form-control" id="senha" placeholder="Digite uma senha">
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastre-se</button>
+      </form>
+      <div class="sign-in-link">
+        Já tem uma conta? <a href="loginUser.html" style="text-decoration: none;"><u>Faça login!</u></a>
       </div>
     </div>
-  </div>  
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous">
+    
+            function validarForm() {
+                var nome = document.getElementById("nome").value;
+                var data = document.getElementById("data").value;
+                var login = document.getElementById("login").value;
+                var email = document.getElementById("email").value;
+                var senha = document.getElementById("senha").value;
+                
+                if (nome === "" || data === "" || login === "" || email === "" || senha === "") {
+                    alert("Por favor, preencha todos os campos.");
+                    return false;
+                }
+                return true;
+            }
+        </script>
 </body>
 </html>
