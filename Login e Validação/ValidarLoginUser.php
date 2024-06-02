@@ -30,7 +30,7 @@
             echo "Senha incorreta.";
         }
     } else {
-        header("Location: registroUser.html");
+        header("Location: cadastroUser.html");
         exit();
     }
 
