@@ -17,9 +17,9 @@
     } else {
         $sql = "SELECT * FROM administrador WHERE Login='$login' AND Senha='$senha'";
 
-        $result = $conexao->query($sql);
+        $resultado = $conexao->query($sql);
 
-        if ($result->num_rows > 0) {
+        if ($resultado->num_rows > 0) {
             echo "Login de administrador bem-sucedido.";
         } else {
             echo "Login de administrador inválido.";
