@@ -2,14 +2,14 @@
     $servidor = "localhost";
     $usuario = "root"; 
     $senhaBDD = ""; 
-    $bancoDD = "projeto_lbs"; 
-    $conexao = new mysqli($servidor, $usuario, $senhaBDD, $bancoBDD);
+    $bancoDD = "projeto_lbs"; <--Aqui vai ter o nome do bdd que tu criou -->
+    $conexao = new mysqli($servidor, $usuario, $senhaBDD, $bancoDD);
 
     if ($conexao->connect_error) {
         die("Ocorreu um erro: " . $conexao->connect_error);
     }
 
-    $login = $_POST['login'];
+    $nome = $_POST['nome'];
     $senha = $_POST['senha'];
 
     if (empty($login) || empty($senha)) {
