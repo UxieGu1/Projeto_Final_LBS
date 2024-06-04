@@ -56,23 +56,19 @@
         <div class="mb-3">
           <h1 >Cadastra-se</h1>
           <label for="nome" class="form-label">Nome completo:</label>
-          <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+          <input type="text" class="form-control" name="nome" placeholder="Digite seu nome">
         </div>
         <div class="mb-3">
           <label for="data" class="form-label">Data de nascimento:</label>
-          <input type="text" class="form-control" id="data" placeholder="Digite sua data de nasc.">
-        </div>
-        <div class="mb-3">
-          <label for="login" class="form-label">Login</label>
-          <input type="text" class="form-control" id="login" placeholder="Digite seu login">
+          <input type="text" class="form-control" name="data" placeholder="Digite sua data de nasc.">
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+          <input type="email" class="form-control" name="email" placeholder="Digite seu email">
         </div>
         <div class="mb-3">
           <label for="senha" class="form-label">Senha:</label>
-          <input type="password" class="form-control" id="senha" placeholder="Digite uma senha">
+          <input type="password" class="form-control" name="senha" placeholder="Digite uma senha">
         </div>
         <button type="submit" class="btn btn-primary">Cadastre-se</button>
       </form>
@@ -88,11 +84,10 @@
             function validarForm() {
                 var nome = document.getElementById("nome").value;
                 var data = document.getElementById("data").value;
-                var login = document.getElementById("login").value;
                 var email = document.getElementById("email").value;
                 var senha = document.getElementById("senha").value;
                 
-                if (nome === "" || data === "" || login === "" || email === "" || senha === "") {
+                if (nome === "" || data === "" || email === "" || senha === "") {
                     alert("Por favor, preencha todos os campos.");
                     return false;
                 }
