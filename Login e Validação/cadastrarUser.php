@@ -17,7 +17,7 @@
     if (empty($senha) || empty($nome_completo) || empty($data_nascimento) || empty($email)) {
         echo "Por favor, preencha todos os campos.";
     } else {
-        $inserir_sql = "INSERT INTO usuario (Senha, NomeCompleto, DataNascimento, Email) VALUES ( '$senha', '$nome_completo', '$data_nascimento', '$email')";
+        $inserir_sql = "INSERT INTO usuario (Senha, Nome, DataNascimento, Email) VALUES ( '$senha', '$nome_completo', '$data_nascimento', '$email')";
 
         if ($conexao->query($inserir_sql) === TRUE) {
             echo "Novo usuário adicionado com sucesso.";
