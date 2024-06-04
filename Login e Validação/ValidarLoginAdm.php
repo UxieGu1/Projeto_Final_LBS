@@ -2,7 +2,7 @@
     $servidor = "localhost";
     $usuario = "root"; 
     $senhaBDD = ""; 
-    $bancoDD = "projeto_lbs"; <--Aqui vai ter o nome do bdd que tu criou -->
+    $bancoDD = "projeto_lbs"; <!-- Aqui vai ter o nome do bdd que tu criou -->
     $conexao = new mysqli($servidor, $usuario, $senhaBDD, $bancoDD);
 
     if ($conexao->connect_error) {
@@ -12,10 +12,10 @@
     $nome = $_POST['nome'];
     $senha = $_POST['senha'];
 
-    if (empty($login) || empty($senha)) {
+    if (empty($nome) || empty($senha)) {
         echo "Por favor, preencha todos os campos.";
     } else {
-        $sql = "SELECT * FROM administrador WHERE Login='$login' AND Senha='$senha'";
+        $sql = "SELECT * FROM administrador WHERE Login='$nome' AND Senha='$senha'";
 
         $resultado = $conexao->query($sql);
 
