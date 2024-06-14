@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessão de Produtos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+* {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .2s linear;
+    text-transform: capitalize;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background: #eee;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 3rem;
+}
+
+.container .titulo {
+    font-size: 2.5rem;
+    padding: 1rem 2rem;
+    color: #fff;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #0074f9;
+    border-radius: 10px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.container .container-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); 
+    gap: 2rem;
+}
+
+.container .container-produtos .descricao p {
+    font-size: 1rem; 
+}
+
+.container .container-produtos .produto {
+    text-align: center;
+    padding: 2rem 1.5rem; 
+    background: #fff;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+    outline: .1rem solid #ccc;
+    outline-offset: -1.5rem;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.container .container-produtos .produto img {
+    border-radius: 20px;
+    height: 20rem; 
+}
+
+.container .container-produtos .produto:hover {
+    outline: .2rem solid #222;
+    outline-offset: 0;
+}
+
+.container .container-produtos .produto:hover img {
+    transform: scale(.95); 
+}
+
+.container .container-produtos .produto h3 {
+    padding: .5rem 0;
+    font-size: 1.8rem; 
+    color: #444;
+}
+
+.container .container-produtos .produto:hover h3 {
+    color: #27ae60;
+}
+
+.container .container-produtos .produto .preco {
+    font-size: 1.8rem; 
+    color: #444;
+}
+
+.container .container-produtos .produto .descricao {
+    font-size: 1.4rem;
+    color: #777;
+    margin-top: 1rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .container .container-produtos .produto .descricao {
+        font-size: 1.2rem;
+    }
+}
+
+.previews-produtos {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, .8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.previews-produtos .preview {
+    display: none;
+    padding: 2rem;
+    text-align: center;
+    background: #fff;
+    position: relative;
+    margin: 2rem;
+    width: 35rem; 
+    border-radius: 20px;
+}
+
+.previews-produtos .preview.active {
+    display: inline-block;
+}
+
+.previews-produtos .preview img {
+    height: 25rem; 
+    border-radius: 20px;
+}
+
+.previews-produtos .preview .fa-times {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    cursor: pointer;
+    color: #444;
+    font-size: 3rem; 
+}
+
+.previews-produtos .preview h3 {
+    color: #444;
+    padding: .5rem 0;
+    font-size: 2rem; 
+}
+
+.previews-produtos .preview .stars {
+    padding: 1rem 0;
+    font-size: 1.5rem;
+}
+
+.previews-produtos .preview .stars i {
+    color: #27ae60;
+}
+
+.previews-produtos .preview .stars span {
+    color: #999;
+}
+
+.previews-produtos .preview p {
+    line-height: 1.5;
+    padding: 1rem 0;
+    font-size: 1.4rem;
+    color: #777;
+}
+
+.previews-produtos .preview .preco {
+    padding: 1rem 0;
+    font-size: 2rem; 
+    color: #27ae60;
+}
+
+.previews-produtos .preview .buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.previews-produtos .preview .buttons a {
+    flex: 1 1 16rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: #444;
+    border: .1rem solid #444;
+    border-radius: 8px;
+}
+
+.previews-produtos .preview .buttons a.cart {
+    background: #444;
+    color: #fff;
+}
+
+.previews-produtos .preview .buttons a.cart:hover {
+    background: #111;
+}
+
+.previews-produtos .preview .buttons a.compra:hover {
+    background: #444;
+    color: #fff;
+}
+
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+    .container .container-produtos .produto img {
+        height: 18rem;
+    }
+    .previews-produtos .preview img {
+        height: 22rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container .container-produtos .produto .descricao {
+        font-size: 1.2rem;
+    }
+    .previews-produtos .preview img {
+        height: 20rem;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+    .container .titulo {
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+    }
+    .container .container-produtos .produto {
+        padding: 1.5rem 1rem;
+    }
+    .container .container-produtos .produto img {
+        height: 15rem;
+    }
+    .previews-produtos .preview img {
+        height: 18rem;
+    }
+}
+  </style>
+</head>
+<body>
+    <div class="container">
+
+        <h3 class="titulo">Suplementos e produtos para ajudar na sua vida saudável.</h3>
+     
+        <div class="container-produtos">
+     
+           <div class="produto" data-name="p-1">
+              <img src="img_produto/1.jpg" alt="">
+              <h3>Whey</h3>
+              <p class="descricao">Suplemento proteico de alta qualidade para atletas e praticantes de atividades físicas.</p>
+              <div class="preco">$120,00</div>
+          </div>
+          <div class="produto" data-name="p-2">
+              <img src="img_produto/2.jpg" alt="">
+              <h3>Creatina Monohidratada</h3>
+              <p class="descricao">Suplemento que aumenta força e resistência muscular para treinos intensos.</p>
+              <div class="preco">$80,00</div>
+          </div>
+          <div class="produto" data-name="p-3">
+              <img src="img_produto/3.jpg" alt="">
+              <h3>Mass Muscle Gainer</h3>
+              <p class="descricao">Suplemento para ganhar massa muscular rapidamente. </p>
+              <div class="preco">$150,00</div>
+          </div>
+          <div class="produto" data-name="p-4">
+              <img src="img_produto/4.jpg" alt="">
+              <h3>Coqueteleira Growth</h3>
+              <p class="descricao">Coqueteleira Shakeira Para Academi e treinos em casa Growth fitness</p>
+              <div class="preco">$100.00</div>
+          </div>
+          <div class="produto" data-name="p-5">
+              <img src="img_produto/5.jpg" alt="">
+              <h3>Tenis Sportivo</h3>
+              <p class="descricao">Suplemento proteico de alta qualidade para atletas e praticantes de atividades físicas. </p>
+              <div class="preco">$120.00</div>
+          </div>
+          <div class="produto" data-name="p-6">
+              <img src="img_produto/6.jpg" alt="">
+              <h3>Tenis nike sportswear</h3>
+              <p class="descricao">Suplemento para melhorar recuperação muscular e reduzir fadiga.</p>
+              <div class="preco">$90.00</div>
+          </div>
+        </div>
+     
+     </div>
+     
+     <div class="previews-produtos">
+     
+        <div class="preview" data-target="p-1">
+           <i class="fas fa-times"></i>
+           <img src="img_produto/1.jpg" alt="">
+           <h3>Whey</h3>
+           <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>( 250 )</span>
+           </div>
+           <p>Suplemento proteico de alta qualidade para atletas e praticantes de atividades físicas. </p>
+           <div class="preco">R$120,00</div>
+           <div class="buttons">
+              <a href="paginaCompra.html" class="compra">Comprar Agora</a>
+              <a href="paginaCarrinho.html" class="cart">Adicionar ao Carrinho</a>
+           </div>
+        </div>
+        <div class="preview" data-target="p-2">
+           <i class="fas fa-times"></i>
+           <img src="img_produto/2.jpg" alt="">
+           <h3>Creatina Monohidratada</h3>
+           <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>( 250 )</span>
+           </div>
+           <p>Suplemento que aumenta força e resistência muscular para treinos intensos.</p>
+           <div class="preco">R$80,00</div>
+           <div class="buttons">
+              <a href="paginaCompra.html" class="compra">Comprar Agora</a>
+              <a href="paginaCarrinho.html" class="cart">Adicionar ao Carrinho</a>
+           </div>
+        </div>
+        <div class="preview" data-target="p-3">
+           <i class="fas fa-times"></i>
+           <img src="img_produto/3.jpg" alt="">
+           <h3>Mass Muscle Gainer</h3>
+           <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>( 250 )</span>
+           </div>
+           <p>Suplemento para ganhar massa muscular rapidamente.</p>
+           <div class="preco">R$120,00</div>
+           <div class="buttons">
+              <a href="paginaCompra.html" class="compra">Comprar Agora</a>
+              <a href="paginaCarrinho.html" class="cart">Adicionar ao Carrinho</a>
+           </div>
+        </div>
+        <div class="preview" data-target="p-4">
+           <i class="fas fa-times"></i>
+           <img src="img_produto/4.jpg" alt="">
+           <h3>Coqueteleira Growth</h3>
+           <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>( 250 )</span>
+           </div>
+           <p>Coqueteleira Shakeira Para Academi e treinos em casa Growth fitness.</p>
+           <div class="preco">R$120,00</div>
+           <div class="buttons">
+              <a href="paginaCompra.html" class="compra">Comprar Agora</a>
+              <a href="paginaCarrinho.html" class="cart">Adicionar ao Carrinho</a>
+           </div>
+        </div>
+        <div class="preview" data-target="p-5">
+           <i class="fas fa-times"></i>
+           <img src="img_produto/5.jpg" alt="">
+           <h3>Tenis Sportivo</h3>
+           <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>( 250 )</span>
+           </div>
+           <p>Tenis Esportivo para atletas e praticantes de exercícios fisicos</p>
+           <div class="preco">R$2,00</div>
+           <div class="buttons">
+              <a href="paginaCompra.html" class="compra">Comprar Agora</a>
+              <a href="paginaCarrinho.html" class="cart">Adicionar ao Carrinho</a>
+           </div>
+        </div>
+        <div class="preview" data-target="p-6">
+           <i class="fas fa-times"></i>
+           <img src="img_produto/6.jpg" alt="">
+           <h3>Tenis Nike sportswear</h3>
+           <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>( 250 )</span>
+           </div>
+           <p>Tenis Esportivo para atletas e praticantes de exercícios fisicos</p>
+           <div class="preco">R$2,00</div>
+           <div class="buttons">
+              <a href="paginaCompra.html" class="compra">Comprar Agora</a>
+              <a href="paginaCarrinho.html" class="cart">Adicionar ao Carrinho</a>
+           </div>
+        </div>
+     </div>
+     <script>
+        let containerPreview = document.querySelector('.previews-produtos');
+let previews = containerPreview.querySelectorAll('.preview');
+
+document.querySelectorAll('.container-produtos .produto').forEach(produto =>{
+  produto.onclick = () =>{
+    previews.forEach(preview => {
+      preview.classList.remove('active');
+    });
+    let nome = produto.getAttribute('data-name');
+    previews.forEach(preview =>{
+      let alvo = preview.getAttribute('data-target');
+      if(nome === alvo){
+        preview.classList.add('active');
+      }
+    });
+    containerPreview.style.display = 'flex';
+  };
+});
+
+previews.forEach(fechar =>{
+  fechar.querySelector('.fa-times').onclick = () =>{
+    fechar.classList.remove('active');
+    containerPreview.style.display = 'none';
+  };
+});
+
+
+     </script>
+</body>
+</html>

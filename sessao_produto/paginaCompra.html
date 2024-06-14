@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra Finalizada</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .2s linear;
+    text-transform: capitalize;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    text-align: center;
+    padding: 2rem; 
+}
+
+.container {
+    max-width: 600px;
+    background: #fff;
+    padding: 3rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #0074f9;
+}
+
+.container p {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    color: #777;
+}
+
+.container a {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    color: #fff;
+    background: #27ae60;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.container a:hover {
+    background: #1e8449;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 55%;
+    }
+
+    .container {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .container {
+        padding: 1.5rem;
+    }
+
+    .container h1 {
+        font-size: 2.5rem;
+    }
+
+    .container p {
+        font-size: 1.4rem;
+    }
+
+    .container a {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.6rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Compra Finalizada</h1>
+        <p>Obrigado por comprar conosco! Sua compra foi finalizada com sucesso.</p>
+        <a href="sessaoProduto.html">Voltar à Loja</a>
+    </div>
+    <script>
+        window.onload = function() {
+            alert("Compra finalizada com sucesso! Obrigado por comprar conosco.");
+        };
+    </script>
+</body>
+</html>
