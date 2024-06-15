@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra Finalizada</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+        body, html {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            transition: all .2s linear;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #eee;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 500px; 
+            padding: 2.5rem;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .container h2 {
+            font-size: 2.5rem;
+            color: #0074f9;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .mensagem {
+            font-size: 1.8rem;
+            color: #444;
+            margin-bottom: 2rem;
+        }
+
+        .btn-voltar {
+            padding: 1rem 2rem;
+            background-color: #0074f9;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.6rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            display: inline-block; 
+        }
+
+        .btn-voltar:hover {
+            background-color: #1a168a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Compra Finalizada</h2>
+        <p class="mensagem">Obrigado pela sua compra!</p>
+        <a href="produtos.html" class="btn-voltar">Voltar aos Produtos</a>
+    </div>
+</body>
+</html>

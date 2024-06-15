@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Compra</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+        body, html {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            transition: all .2s linear;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            padding: 2.5rem;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .container h2 {
+            font-size: 2.5rem;
+            color: #0074f9;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .confirmar {
+            padding: 1rem;
+            font-size: 1.6rem;
+            margin: 1rem 0;
+            width: 80%;
+            max-width: 500px;
+            border: 0.1rem solid #ccc;
+            border-radius: 10px;
+        }
+
+        .button {
+            padding: 1rem 2rem;
+            background-color: #0074f9;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.6rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            transition: background-color 0.2s;
+        }
+
+        .button:hover {
+            background-color: #1a168a;
+        }
+
+        .link {
+            display: block;
+            margin-top: 2rem;
+            color: #0074f9;
+            font-size: 1.6rem;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Finalizar Compra</h2>
+        <input type="text" id="confirmar" class="confirmar" placeholder="Digite CONFIRMAR para finalizar a compra"><br>
+        <a href="compra_finalizada.html"><button class="button" onclick="confirmPurchase()">Confirmar Compra</button></a>
+        <a href="cadastro.html" class="link">Não tem uma conta? Cadastre-se aqui</a>
+    </div>
+    <script>
+        function confirmPurchase() {
+            var input = document.getElementById('confirmar').value;
+            if (input === 'CONFIRMAR') {
+                alert("Compra realizada com sucesso!");
+            } else {
+                alert("Por favor, digite CONFIRMAR para finalizar a compra.");
+            }
+        }
+    </script>
+</body>
+</html>
